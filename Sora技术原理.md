@@ -1,6 +1,10 @@
 <img width="544" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/8601bead-fd94-4136-8f54-8d65afeb9c86">
 
+来源：
+
 https://mp.weixin.qq.com/s/LQGwoU6xZJftmMtsQKde_w
+
+厦门大学平潭研究院研究院杨知铮
 
 # Sora 能力：
 
