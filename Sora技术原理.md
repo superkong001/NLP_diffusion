@@ -22,7 +22,7 @@ GitHub链接：https://github.com/baofff/U-ViT
 
 Sora技术报告原文： https://openai.com/research/video-generation-models-as-world-simulators
 
-核心摘要:我们探索了利用视频数据对生成模型进行大规模训练。具体来说,我们在不同持续时间、分辨率和纵横比的视频和图像上联合训练了以文本为输入条件的扩散模型。我们引入了一种transformer架构,该架构对视频的时空序列包和图像潜在编码进行操作。我们最顶尖的模型Sora已经能够生成最长一分钟的高保真视频,这标志着我们在视频生成领域取得了重大突破。我们的研究结果表明,通过扩大视频生成模型的规模,我们有望构建出能够模拟物理世界的通用模拟器,这无疑是一条极具前景的发展道。
+核心摘要：我们探索了利用视频数据对生成模型进行大规模训练。具体来说,我们在不同持续时间、分辨率和纵横比的视频和图像上联合训练了以文本为输入条件的扩散模型。我们引入了一种transformer架构,该架构对视频的时空序列包和图像潜在编码进行操作。我们最顶尖的模型Sora已经能够生成最长一分钟的高保真视频,这标志着我们在视频生成领域取得了重大突破。我们的研究结果表明,通过扩大视频生成模型的规模,我们有望构建出能够模拟物理世界的通用模拟器,这无疑是一条极具前景的发展道。
 
 # 相关技术解读
 
@@ -52,11 +52,11 @@ Sora是一个在不同时长、分辨率和宽高比的视频及图像上训练�
 
 <img width="889" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/a6b5ce50-fa2c-4b92-aac3-5baf37f8ddb4">
 
+![image](https://github.com/superkong001/NLP_diffusion/assets/37318654/ad467aca-8d3a-4878-b99a-5b1ef68b14d2)
+
 ### Latent Diffusion Model(Stable Diffusion)
 
 <img width="911" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/b587415e-6bd0-4146-9581-97668845ebe3">
-
-![image](https://github.com/superkong001/NLP_diffusion/assets/37318654/ad467aca-8d3a-4878-b99a-5b1ef68b14d2)
 
 # Sora关键技术拆解
 
