@@ -1,4 +1,4 @@
-![84b043c179aaad94406f9182af81c47b_seq2seq](https://github.com/superkong001/NLP_diffusion/assets/37318654/9af25a38-f7d1-41da-a5c5-49a744122eb0)参考：Transformers技术解析+实战(LLM)，多种Transformers diffusion模型技术图像生成技术+实战
+参考：Transformers技术解析+实战(LLM)，多种Transformers diffusion模型技术图像生成技术+实战
 > https://github.com/datawhalechina/sora-tutorial/blob/main/docs/chapter2/chapter2_2.md
 
 # SelfAttention 
