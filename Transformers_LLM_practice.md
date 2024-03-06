@@ -1,3 +1,9 @@
+参考： 一文读懂各种神经网络层（ Pytorch ）
+> https://mp.weixin.qq.com/s/wOEL6Hj2lZ_OJclmnGTnHw
+
+<img width="416" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/265034ad-1c76-4966-8b95-724c51b5bb06">
+
+
 参考：Transformers技术解析+实战(LLM)，多种Transformers diffusion模型技术图像生成技术+实战
 > https://github.com/datawhalechina/sora-tutorial/blob/main/docs/chapter2/chapter2_2.md
 
