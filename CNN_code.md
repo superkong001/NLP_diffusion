@@ -1,4 +1,4 @@
-使用Keras框架
+Keras框架一个简单的CNN架构示例，用于处理64x64像素的彩色图像（3个颜色通道），包含两个卷积层，每个卷积层后面跟着一个最大池化层，最后是两个全连接层进行分类（假设有10个类别）。
 
 ```Bash
 from keras.models import Sequential
