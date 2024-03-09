@@ -39,6 +39,8 @@ Multi-head attention allows the model to jointly attend to information from diff
 
 <img width="621" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/1b27e1fd-f820-424f-8952-36bbebdb6239">
 
+<img width="637" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/7a191634-82fb-4d7e-9ba0-41a65220e12b">
+
 ## 实践体验
 
 ```Bash
