@@ -146,18 +146,19 @@ class AttentionDemoModel(nn.Module):
 
     def forward(self, x):
         batch_size, seq_len = x.shape
+        # x为batch_size, seq_len的张量
         h = self.emb(x)
         # 送入自注意力机制，得到自注意力得分 (attn_score) 和加权的隐藏状态 (h)
         attn_score, h = self.attn(h)
-        # h [batch_size, seq_len, -1]
+        # h [batch_size, seq_len, hidden_dim]：如[8 batch_size, 13 token, 512 hidden_dim]
 
-        # 对隐藏状态进行平均池化
+        # 对隐藏状态进行平均池化, [8 batch_size, 13 token, 512 hidden_dim] -> [8 batch_size, 512 hidden_dim]
         # Applies a 1D average pooling over an input signal composed of several input planes.
         # 第一个参数是进行池化操作的输入张量，经过 permute 调整维度后的 h。
         # seq_len 是池化窗口的大小。例子中，池化窗口的大小被设置为序列的全长度，意味着对整个序列长度的特征进行平均。
         # 第三个参数 1 表示池化操作的步长。在这里，步长为 1 意味着池化窗口在移动时不会重叠
         # permute 方法用于调整张量的维度，以适应池化层的输入要求
-        # input (Tensor) – the input tensor;
+        # 同时操作tensor的若干维度将tensor的维度换位
         # dims (tuple of int) – The desired ordering of dimensions
         # 从[batch_size, seq_len, hidden_dim] 转换为 [batch_size, hidden_dim, seq_len]
         h = F.avg_pool1d(h.permute(0, 2, 1), seq_len, 1)
@@ -173,13 +174,19 @@ class AttentionDemoModel(nn.Module):
 
 @dataclass
 class Config:
+    # 词表大小
     vocab_size: int = 5000
+    # 默认
     hidden_dim: int = 512
+    # 多少头
     num_heads: int = 16
     head_dim: int = 32
-    dropout: float = 0.1    
-    num_labels: int = 2    
-    max_seq_len: int = 512    
+    dropout: float = 0.1
+    # 标签数
+    num_labels: int = 2
+    # 最长句子长度
+    max_seq_len: int = 512
+    # 训练次数
     num_epochs: int = 10
 
 config = Config(5000, 512, 16, 32, 0.1, 2)
