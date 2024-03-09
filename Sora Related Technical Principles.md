@@ -72,6 +72,9 @@ einops是一个用于操作张量的库,它的出现可以替代我们平时使�
 
 <img width="889" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/d64549f4-bce7-41ba-b0cd-b81cdb714e9b">
 
+![image](https://github.com/superkong001/NLP_diffusion/assets/37318654/7adfda20-750a-4a3f-a330-d533f42d115c)
+
+
 ## Spacetime latent patches 
 
 1) 摊大饼法：从输入视频剪辑中均匀采样 n_t 个帧，使用与ViT相同的方法独立地嵌入每个2D帧(embed each 2D frame independently using the same method as ViT)，并将所有这token连接在一起
