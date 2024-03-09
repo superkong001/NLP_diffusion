@@ -27,9 +27,9 @@
 
 Multi-head attention allows the model to jointly attend to information from different representation subspaces at different positions.
 
-<img width="362" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/e9a1725a-b997-418c-a45b-590827ed15c6">
-
 <img width="326" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/7ec088b2-9e4e-49ac-b89f-8f6d032b8818">
+
+<img width="362" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/e9a1725a-b997-418c-a45b-590827ed15c6">
 
 <img width="623" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/bb0c06cf-bf25-4566-aa0f-e11078c4d9f7">
 
