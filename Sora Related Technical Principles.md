@@ -77,6 +77,8 @@ einops是一个用于操作张量的库,它的出现可以替代我们平时使�
 
 ## Spacetime latent patches 
 
+ViViT：视频ViT
+
 1) 摊大饼法：从输入视频剪辑中均匀采样 n_t 个帧，使用与ViT相同的方法独立地嵌入每个2D帧(embed each 2D frame independently using the same method as ViT)，并将所有这token连接在一起
 
 <img width="823" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/0442df1a-5cd2-4c40-814b-fc6941ab8a34">
@@ -88,6 +90,8 @@ einops是一个用于操作张量的库,它的出现可以替代我们平时使�
 <img width="862" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/be3e03e0-b92e-4692-910b-850cde9bea7b">
 
 <img width="889" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/85a803d7-83cf-4062-807a-5817d93b22a9">
+
+paper：https://arxiv.org/abs/2103.15691
 
 tips:-技术难点：视频压缩网络类比于 Latent Diffusion Model 中的 VAE 但压缩率是多少,Encoder的复杂度、时空交互的range？Scale up？
 
