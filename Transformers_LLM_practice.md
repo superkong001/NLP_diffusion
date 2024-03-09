@@ -56,6 +56,7 @@ class SelfAttention(nn.Module):
 
         # 隐藏层的维度(hidden_dim)、Multi-Head的数量(num_heads)
         # 由于在自注意力中，隐藏层的维度需要被等分到每个头上，因此确保隐藏层的维度能被Multi-Head的数量整除。
+        # num_heads为self-attention的头数
         assert config.hidden_dim % config.num_heads == 0
 
         # 创建了三个线性层，用于计算查询（Q）、键（K）和值（V）向量
@@ -71,7 +72,7 @@ class SelfAttention(nn.Module):
         # 定义了一个dropout层，用于在训练阶段按某种概率随即将输入的张量元素随机归零，防止网络过拟合
         self.att_dropout = nn.Dropout(config.dropout)
 
-    # 定义了模块的前向传播方法forward,接收输入x和可选的mask参数。从输入x中提取 query、key和value
+    # 定义了模块的前向传播方法forward,接收输入x和可选的mask参数。从输入x中提取query、key和value
     def forward(self, x, mask=None):
         # 从输入的embeding后数据提取批次大小(数量)、每批序列(内容)长度和每个内容的维度
         batch_size, seq_len, hidden_dim = x.shape
@@ -116,6 +117,7 @@ class SelfAttention(nn.Module):
         attv = torch.matmul(score, v)
         # transpose(1, 2)交换第一维和第二维的位置，转换回(batch_size, seq_len, num_heads, head_dim)形状
         # contiguous()方法使得返回的张量在内存中连续存储。
+        # 因为转置后的张量可能不是物理上连续的，而contiguous()会重新排列存储以使得每个元素在物理内存中紧密排列，以免引发错误或性能下降。
         attv = attv.transpose(1, 2).contiguous()
         # 将输出重塑为原始输入的形状
         attv = attv.view(batch_size, seq_len, -1)
@@ -135,26 +137,40 @@ from selfattention import SelfAttention
 # 模型，只用一个核心的SelfAttention模块（可支持Single-Head或Multi-Head），来学习理解Attention机制。
 
 class Model(nn.Module):
-    
     def __init__(self, config):
         super().__init__()
         self.config = config
         self.emb = nn.Embedding(config.vocab_size, config.hidden_dim)
-        self.attn = SelfAttention(config)
+        self.attn = MySelfAttention(config)
         self.fc = nn.Linear(config.hidden_dim, config.num_labels)
-    
+
     def forward(self, x):
         batch_size, seq_len = x.shape
         h = self.emb(x)
+        # 送入自注意力机制，得到自注意力得分 (attn_score) 和加权的隐藏状态 (h)
         attn_score, h = self.attn(h)
+        # h [batch_size, seq_len, -1]
+
+        # 对隐藏状态进行平均池化
+        # Applies a 1D average pooling over an input signal composed of several input planes.
+        # 第一个参数是进行池化操作的输入张量，经过 permute 调整维度后的 h。
+        # seq_len 是池化窗口的大小。例子中，池化窗口的大小被设置为序列的全长度，意味着对整个序列长度的特征进行平均。
+        # 第三个参数 1 表示池化操作的步长。在这里，步长为 1 意味着池化窗口在移动时不会重叠
+        # permute 方法用于调整张量的维度，以适应池化层的输入要求
+        # input (Tensor) – the input tensor;
+        # dims (tuple of int) – The desired ordering of dimensions
+        # 从[batch_size, seq_len, hidden_dim] 转换为 [batch_size, hidden_dim, seq_len]
         h = F.avg_pool1d(h.permute(0, 2, 1), seq_len, 1)
+
+        # squeeze 方法去除多余的维度,去除最后一个维度
+        # 输出张量的形状就变为 [batch_size, hidden_dim, seq_len]
         h = h.squeeze(-1)
         logits = self.fc(h)
+
         return attn_score, logits
 
 @dataclass
 class Config:
-    
     vocab_size: int = 5000
     hidden_dim: int = 512
     num_heads: int = 16
@@ -171,5 +187,8 @@ print(x.shape)
 attn, logits = model(x)
 print(attn.shape, logits.shape)
 ```
+
+<img width="545" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/4161bd45-e74f-4a69-9e59-3ae60005adfe">
+
 
 # LLM
