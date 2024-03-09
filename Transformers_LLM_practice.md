@@ -195,5 +195,13 @@ print(attn.shape, logits.shape)
 
 # LLM
 
+LLaMA
+
+Tokenize
+
+Decoding
+
+Transformer Block
+
 ![561217a8861fd7afdfcf31f08f54c6f1_68747470733a2f2f716e696d672e6c6f766576697669616e2e636e2f626c6f672d6c6c616d612d617263682e6a7067](https://github.com/superkong001/NLP_diffusion/assets/37318654/8642c075-45a6-4931-aae7-80f59d247f54)
 
