@@ -48,7 +48,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 
-class SelfAttention(nn.Module):
+class MySelfAttention(nn.Module):
     # 定义了初始化方法，它接受一个config对象作为参数，这个对象包含了模型的配置信息
     def __init__(self, config):
         super().__init__()
@@ -136,7 +136,7 @@ from selfattention import SelfAttention
 
 # 模型，只用一个核心的SelfAttention模块（可支持Single-Head或Multi-Head），来学习理解Attention机制。
 
-class Model(nn.Module):
+class AttentionDemoModel(nn.Module):
     def __init__(self, config):
         super().__init__()
         self.config = config
@@ -165,6 +165,8 @@ class Model(nn.Module):
         # squeeze 方法去除多余的维度,去除最后一个维度
         # 输出张量的形状就变为 [batch_size, hidden_dim, seq_len]
         h = h.squeeze(-1)
+
+        # 经过全连接层得到每个类别的预测分数（logits)
         logits = self.fc(h)
 
         return attn_score, logits
