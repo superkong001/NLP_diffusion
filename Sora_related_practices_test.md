@@ -70,6 +70,11 @@ A: 将短片的叙述视角改为一位老者，确实会增加一种历史的�
 用一段富有哲理的旁白结束，表达对未知世界的敬畏和对探险的热爱，
 ```
 
+## 提示词影响
+
+<img width="428" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/8d045e4c-d83e-4afb-a2cc-6747a02fd93b">
+
+<img width="612" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/d3cac62a-3bfc-4693-9c65-fc1b180e22e0">
 
 基于Transformers的Diffusion模型
 
