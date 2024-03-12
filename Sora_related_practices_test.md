@@ -83,3 +83,9 @@ A: 将短片的叙述视角改为一位老者，确实会增加一种历史的�
 基于Transformers的架构的Diffusion模型设计了一个简单而通用的基于Vision Transformers（ViT）的架构（U-ViT），替换了latent diffusion model中的U-Net部分中的卷积神经网络（CNN），用于diffusion模型的图像生成任务。
 
 遵循Transformers的设计方法，这类方式将包括时间、条件和噪声图像patches在内的所有输入都视作为token。
+
+# 相关推荐
+
+SD模型网站： 
+
+C站： https://civitai.com/
