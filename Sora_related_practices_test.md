@@ -1,3 +1,9 @@
+
+![shanhaijin-1](https://github.com/superkong001/NLP_diffusion/assets/37318654/50ffd4ee-2ce0-4497-9915-8dc94891bc18)
+
+https://github.com/superkong001/NLP_diffusion/assets/37318654/7a9ea5cf-2c3f-4cc3-859d-7f4d21082f87
+
+
 # 原AI制作视频
 
 视频生成大致流程:
