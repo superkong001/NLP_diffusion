@@ -5,8 +5,6 @@
 2. 在使用SD，MJ等软件画图。
 3. 最后利用SVD，Pika，Runway登软件生成视频。
 
-<img width="480" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/dc034549-6fbc-4cdf-853a-7bf695b5e833">
-
 ## 如何搭配使用?
 
 生图类软件之间: 
@@ -20,6 +18,14 @@ Midjourney基本咒语:
   图片链接提示+文字描述提示[场景][主体][情境][风格][光线][镜头]+后缀参数提示。
   
 <img width="295" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/92a828be-eefc-4673-8328-2f444d31f805">
+
+<img width="228" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/253face0-6f60-44c4-b4d5-d1ead6bd5987">
+
+<img width="480" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/dc034549-6fbc-4cdf-853a-7bf695b5e833">
+
+视频生成软件优缺点一览表：
+
+<img width="482" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/92a7b2fc-dec2-4e97-8fce-dda8aebb7ad0">
 
 ## 剧本
 GPT4, eg:
@@ -68,8 +74,6 @@ A: 将短片的叙述视角改为一位老者，确实会增加一种历史的�
 用一段富有哲理的旁白结束，表达对未知世界的敬畏和对探险的热爱，
 
 '''
-
-<img width="228" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/253face0-6f60-44c4-b4d5-d1ead6bd5987">
 
 
 基于Transformers的Diffusion模型
