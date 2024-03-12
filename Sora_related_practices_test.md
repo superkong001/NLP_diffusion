@@ -76,7 +76,7 @@ A: 将短片的叙述视角改为一位老者，确实会增加一种历史的�
 
 <img width="838" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/cf878573-201d-40d8-9aab-50cd39bc262c">
 
-基于Transformers的Diffusion模型
+# 基于Transformers的Diffusion模型
 
 <img width="816" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/14bba3ce-89fe-4817-abef-7ced1067f5c3">
 
