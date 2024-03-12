@@ -3,9 +3,6 @@
 
 <img width="416" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/265034ad-1c76-4966-8b95-724c51b5bb06">
 
-![205241478d09a2981deb7775da0ffb4b_seq2seq2](https://github.com/superkong001/NLP_diffusion/assets/37318654/d0b62426-47e4-4275-9915-ef5a9be5a961)
-
-
 参考：Transformers技术解析+实战(LLM)，多种Transformers diffusion模型技术图像生成技术+实战
 > https://github.com/datawhalechina/sora-tutorial/blob/main/docs/chapter2/chapter2_2.md
 
@@ -14,6 +11,8 @@
 ## 知识点
 
 ![84b043c179aaad94406f9182af81c47b_seq2seq](https://github.com/superkong001/NLP_diffusion/assets/37318654/1f1f31cf-c9e0-43e9-9361-20842ac6576e)
+
+![205241478d09a2981deb7775da0ffb4b_seq2seq2](https://github.com/superkong001/NLP_diffusion/assets/37318654/d0b62426-47e4-4275-9915-ef5a9be5a961)
 
 加性Attention，如（Bahdanau attention）：
 
