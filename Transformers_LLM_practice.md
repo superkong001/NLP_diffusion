@@ -14,6 +14,10 @@
 
 ![205241478d09a2981deb7775da0ffb4b_seq2seq2](https://github.com/superkong001/NLP_diffusion/assets/37318654/d0b62426-47e4-4275-9915-ef5a9be5a961)
 
+From: https://github.com/google/seq2seq
+
+参考：https://zhuanlan.zhihu.com/p/106867810
+
 加性Attention，如（Bahdanau attention）：
 
 <img width="172" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/b686288b-d422-4206-98a3-0b32469c5ad7">
