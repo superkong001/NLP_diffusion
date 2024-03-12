@@ -17,7 +17,7 @@ Midjourney基本咒语:
 
   图片链接提示+文字描述提示[场景][主体][情境][风格][光线][镜头]+后缀参数提示。
 
-<img width="302" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/5302f6f2-0a72-44b9-9f3c-734d1b9b1323">
+<img width="408" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/5302f6f2-0a72-44b9-9f3c-734d1b9b1323">
 
 
 <img width="480" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/dc034549-6fbc-4cdf-853a-7bf695b5e833">
