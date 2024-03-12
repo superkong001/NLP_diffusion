@@ -72,10 +72,14 @@ A: 将短片的叙述视角改为一位老者，确实会增加一种历史的�
 
 ## 提示词影响
 
-<img width="428" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/8d045e4c-d83e-4afb-a2cc-6747a02fd93b">
+<img width="714" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/67a06e0f-c718-455b-8cc3-022f47b586c1">
 
-<img width="612" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/d3cac62a-3bfc-4693-9c65-fc1b180e22e0">
+<img width="838" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/cf878573-201d-40d8-9aab-50cd39bc262c">
 
 基于Transformers的Diffusion模型
 
+<img width="816" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/14bba3ce-89fe-4817-abef-7ced1067f5c3">
 
+基于Transformers的架构的Diffusion模型设计了一个简单而通用的基于Vision Transformers（ViT）的架构（U-ViT），替换了latent diffusion model中的U-Net部分中的卷积神经网络（CNN），用于diffusion模型的图像生成任务。
+
+遵循Transformers的设计方法，这类方式将包括时间、条件和噪声图像patches在内的所有输入都视作为token。
