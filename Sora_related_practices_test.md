@@ -17,8 +17,6 @@ Midjourney基本咒语:
 
   图片链接提示+文字描述提示[场景][主体][情境][风格][光线][镜头]+后缀参数提示。
 
-<img width="228" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/253face0-6f60-44c4-b4d5-d1ead6bd5987">
-
 <img width="480" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/dc034549-6fbc-4cdf-853a-7bf695b5e833">
 
 视频生成软件优缺点一览表：
