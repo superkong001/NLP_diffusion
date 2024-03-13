@@ -112,7 +112,7 @@ neg lack of detail, erratic fluctuation in motion, noisy, bad quality, distorted
 
 # 训练一个 sora 模型
 
-## 模型和数据准备
+## 数据和模型准备
 
 参考： https://github.com/datawhalechina/sora-tutorial/blob/main/docs/chapter3/chapter3_1/chapter3_1.md
 
@@ -213,4 +213,9 @@ InternVid  是一个以视频为中心的大规模多模态数据集，可以�
 
 [Data-Juicer](https://github.com/alibaba/data-juicer/docs/DJ_SORA_ZH.md)  扩展了对多模态数据的支持，已实现上百个专用的视频、图像、音频、文本等多模态数据处理算子及工具，帮助用户分析、清洗及生成大规模高质量数据。
 
+开源链接：https://github.com/alibaba/data-juicer/docs/DJ_SORA_ZH.md
+
+![image](https://github.com/superkong001/NLP_diffusion/assets/37318654/f22f26d8-5547-41c4-923b-32c8fac87313)
+
+### 模型选型和训练
 
