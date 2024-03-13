@@ -227,3 +227,33 @@ InternVid  是一个以视频为中心的大规模多模态数据集，可以�
 
 参考： https://github.com/modelscope/modelscope-classroom/tree/main/AIGC-tutorial
 
+- 视频 VQVAE
+  VideoGPT  使用  VQ-VAE，通过采用  3D  卷积和轴向自注意力来学习原始视频的下采样离散潜在表示。然后使用一个简单的类似  GPT  的架构，使用时空位置编码对离散潜在变量进行自回归建模。用于  BAIR Robot  数据集上的视频生成，并从  UCF-101  和  Tumbler GIF  生成高保真自然图像数据集（TGIF）。
+
+[https://github.com/wilson1yan/VideoGPT/](https://github.com/wilson1yan/VideoGPT/)
+- Diffusion Transformer
+  普遍认为 Diffusion Transformer 模型是 Sora 的技术基础，通过结合 diffusion model 和 transformer，从而达到可以 scale up model 来提升图像生成质量的效果。我们总结了三个目前开源的 Diffusion Transformer 研究如下，并总结了最佳实践，可以在魔搭社区的免费算力上运行和测试。
+
+**UViT：**All are Worth Words: A ViT Backbone for Diffusion Models
+
+论文链接：[https://arxiv.org/abs/2209.12152](https://arxiv.org/abs/2209.12152)
+
+代码库链接：[https://github.com/baofff/U-ViT](https://github.com/baofff/U-ViT)
+
+模型链接：[https://modelscope.cn/models/thu-ml/imagenet256_uvit_huge](https://modelscope.cn/models/thu-ml/imagenet256_uvit_huge/summary)
+
+- **DiT：**Scalable Diffusion Models with Transformers
+  论文链接：[https://arxiv.org/abs/2212.09748](https://arxiv.org/abs/2212.09748)
+
+代码库链接：[https://github.com/facebookresearch/DiT](https://github.com/facebookresearch/DiT)
+
+模型链接：[https://modelscope.cn/models/AI-ModelScope/DiT-XL-2-256x256/summary](https://modelscope.cn/models/AI-ModelScope/DiT-XL-2-256x256/summary)
+
+- **SiT：**Exploring Flow and Diffusion-based Generative Models with Scalable Interpolant Transformers (SiT)
+  论文链接：[https://arxiv.org/pdf/2401.08740.pdf](https://arxiv.org/pdf/2401.08740.pdf)
+
+代码库链接：[https://github.com/willisma/SiT](https://github.com/willisma/SiT)
+
+模型链接：[https://modelscope.cn/models/AI-ModelScope/SiT-XL-2-256](https://modelscope.cn/models/AI-ModelScope/SiT-XL-2-256/summary)
+
+### Video-caption
