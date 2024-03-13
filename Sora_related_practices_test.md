@@ -215,7 +215,8 @@ InternVid  是一个以视频为中心的大规模多模态数据集，可以�
 
 开源链接：https://github.com/alibaba/data-juicer/docs/DJ_SORA_ZH.md
 
-![image](https://github.com/superkong001/NLP_diffusion/assets/37318654/f22f26d8-5547-41c4-923b-32c8fac87313)
+![image](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/a2QnVJp637Rmn4XB/img/9554c372-caba-4c36-94c0-46499400da04.png)
+
 
 ### 模型选型和训练
 
