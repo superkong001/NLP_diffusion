@@ -81,7 +81,13 @@ A: 将短片的叙述视角改为一位老者，确实会增加一种历史的�
 
 <img width="838" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/cf878573-201d-40d8-9aab-50cd39bc262c">
 
-###
+## 相关推荐
+
+SD模型网站： 
+
+C站： https://civitai.com/
+
+## 创作
 
 ```Bash
 故事设定
@@ -104,7 +110,17 @@ A: 将短片的叙述视角改为一位老者，确实会增加一种历史的�
 
 neg lack of detail, erratic fluctuation in motion, noisy, bad quality, distorted, poorly drawn,morphing blurry, grainy, low resolution, oversaturated
 
-# 基于Transformers的Diffusion模型
+# 训练一个 sora 模型
+
+## 模型和数据准备
+
+参考： https://github.com/datawhalechina/sora-tutorial/blob/main/docs/chapter3/chapter3_1/chapter3_1.md
+
+## 声音合成
+
+TTS WIKI 参考 https://github.com/alibaba-damo-academy/KAN-TTS/wiki
+
+### 架构，基于Transformers的Diffusion模型
 
 <img width="816" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/14bba3ce-89fe-4817-abef-7ced1067f5c3">
 
@@ -112,8 +128,89 @@ neg lack of detail, erratic fluctuation in motion, noisy, bad quality, distorted
 
 遵循Transformers的设计方法，这类方式将包括时间、条件和噪声图像patches在内的所有输入都视作为token。
 
-# 相关推荐
+在 Sora 的技术报告中，Sora 使用视频压缩网络将各种大小的视频压缩为潜在空间中的时空 patches sequence，然后使用 Diffusion Transformer 进行去噪，最后解码生成视频。
 
-SD模型网站： 
+![image](https://github.com/superkong001/NLP_diffusion/assets/37318654/0f4144cb-8ff1-4b33-9f80-8a1b698c64e0)
 
-C站： https://civitai.com/
+Open-Sora  在下图中总结了  Sora  可能使用的训练流程： https://hpc-ai.com/blog/open-sora
+
+![image](https://github.com/superkong001/NLP_diffusion/assets/37318654/3b4999b7-aa81-4b73-95f9-45c1ddad9acf)
+
+训练链路：
+
+![image](https://github.com/superkong001/NLP_diffusion/assets/37318654/7f7cbac0-2bdf-4695-ba34-fa9c25bd7479)
+
+### 数据准备
+
+开源数据集：
+
+**VideoInstruct-100K：**
+
+VideoInstruct100K  是使用人工辅助和半自动注释技术生成的高质量视频对话数据集。数据集中的问题答案与以下内容相关：
+
+- 视频摘要
+- 基于描述的问题答案（探索空间、时间、关系和推理概念）
+- 创意/生成性问题解答
+
+链接：[https://modelscope.cn/datasets/AI-ModelScope/VideoInstruct-100K](https://modelscope.cn/datasets/AI-ModelScope/VideoInstruct-100K/summary)
+
+**panda-70m：**
+
+Panda-70M  是一个包含  70M  高质量视频字幕对的大规模数据集。该存储库分为三个部分：
+
+- 数据集数据加载包括列出  Panda-70M  数据的  csv  文件以及下载数据集的代码。
+- 分割包括将长视频分割成多个语义一致的短片的代码。
+- 字幕包括在  Panda-70M  上训练的拟议视频字幕模型。
+
+**链接：**[https://modelscope.cn/datasets/AI-ModelScope/panda-70m](https://modelscope.cn/datasets/AI-ModelScope/panda-70m/summary)
+
+**Youku-mPLUG:**
+
+Youku-mPLUG 预训练数据集挖掘自优酷站内海量的优质短视频内容
+
+- 包含千万级别约 36TB 的视频、文本数据。
+- 其中视频均为覆盖 10 ～ 120 秒的 UGC 短视频内容，文本为视频对应的描述标题，长度 5 ～ 30 不等。
+- 该数据集抽取时品类均衡，内容共包含 45 个大类。
+
+链接：[https://modelscope.cn/datasets/modelscope/Youku-AliceMind](https://modelscope.cn/datasets/modelscope/Youku-AliceMind/summary)
+
+**MSR-VTT：**
+
+MSR-VTT（Microsoft Research Video to Text）是一个开放域视频字幕的大规模数据集。
+
+- 由  20  个类别的  10,000  个视频片段组成，每个视频片段由  Amazon Mechanical Turks  标注了  20  个英文句子。
+- 所有标题中约有  29,000  个独特单词。
+- 标准分割使用  6,513  个 split 用于训练，497  个 split 用于验证，2,990  个 split 用于测试。
+
+链接：[https://modelscope.cn/datasets/AI-ModelScope/msr-vtt](https://modelscope.cn/datasets/AI-ModelScope/msr-vtt/summary)
+
+**Shot2Story：**
+
+视频文本基准和用于多镜头视频理解的可扩展代码。包含 20k  视频的详细长摘要和  80k  视频镜头的镜头字幕。
+
+链接：[https://modelscope.cn/datasets/AI-ModelScope/Shot2Story](https://modelscope.cn/datasets/AI-ModelScope/Shot2Story/summary)
+
+**InternVid：**
+
+InternVid  是一个以视频为中心的大规模多模态数据集，可以学习强大且可转移的视频文本表示，以实现多模态理解和生成。 InternVid  数据集包含超过  700  万个视频，持续近  76  万小时，产生  2.34  亿个视频剪辑，并附有总共  4.1B  个单词的详细描述。
+
+链接：[https://modelscope.cn/datasets/AI-ModelScope/InternVid](https://modelscope.cn/datasets/AI-ModelScope/InternVid/summary)
+
+**webvid-10M：**
+
+大型文本视频数据集，包含从素材网站抓取的**1000  万个视频文本对。**
+
+链接：[https://modelscope.cn/datasets/AI-ModelScope/webvid-10M](https://modelscope.cn/datasets/AI-ModelScope/webvid-10M/summary)
+
+### 数据预处理
+
+- [FFmpeg](https://github.com/FFmpeg/FFmpeg)：150w 行+源码，大量底层细节
+
+  - pytorchvideo：主要支持[加载](https://pytorchvideo.readthedocs.io/en/latest/api/data/data.html)和少量单 video 模态的[tensor transform](https://pytorchvideo.readthedocs.io/en/latest/api/transforms/transforms.html#module-pytorchvideo.transforms.functional)（翻转、扰动、采样等）
+
+- SORA 官方仅模糊提及使用了 DALLE3 来生成 caption，细粒度的"caption --> spacetime patch"建模比较关键
+- 从 SORA 模型效果看，数据需要有变化的时长、分辨率和宽高比
+
+[Data-Juicer](https://github.com/alibaba/data-juicer/docs/DJ_SORA_ZH.md)  扩展了对多模态数据的支持，已实现上百个专用的视频、图像、音频、文本等多模态数据处理算子及工具，帮助用户分析、清洗及生成大规模高质量数据。
+
+
