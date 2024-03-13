@@ -216,10 +216,15 @@ InternVid  是一个以视频为中心的大规模多模态数据集，可以�
 开源链接：https://github.com/alibaba/data-juicer/docs/DJ_SORA_ZH.md
 
 ● 支持视频数据的高性能加载和处理
+
 ● 基础算子(视频时空维度)
+
 ● 进阶算子(细粒度模态间匹配及生成)
+
 ● 进阶算子(视频内容)
+
 ● DJ-SORA数据菜谱及数据集
+
 ● DJ-SORA数据验证及模型训练
 
 
