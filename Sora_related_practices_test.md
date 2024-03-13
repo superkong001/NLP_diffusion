@@ -219,3 +219,5 @@ InternVid  是一个以视频为中心的大规模多模态数据集，可以�
 
 ### 模型选型和训练
 
+参考： https://github.com/modelscope/modelscope-classroom/tree/main/AIGC-tutorial
+
