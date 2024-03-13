@@ -48,6 +48,15 @@ Multi-head attention allows the model to jointly attend to information from diff
 
 <img width="637" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/7a191634-82fb-4d7e-9ba0-41a65220e12b">
 
+参考： Vision Transformers的注意力层概念解释和代码实现
+https://mp.weixin.qq.com/s/VkxU5Bm5x4TZZNYQw8Yzvg
+
+[1] Vaswani et al (2017). Attention Is All You Need. https://doi.org/10.48550/arXiv.1706.03762
+
+[2] Dosovitskiy et al (2020). An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale. https://doi.org/10.48550/arXiv.2010.11929
+
+[3] Yuan et al (2021). Tokens-to-Token ViT: Training Vision Transformers from Scratch on ImageNet. https://doi.org/10.48550/arXiv.2101.11986GitHub code: https://github.com/yitu-opensource/T2T-ViT
+
 ## 实践体验
 
 ```Bash
