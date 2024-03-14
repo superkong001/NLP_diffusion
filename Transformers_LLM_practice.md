@@ -223,6 +223,14 @@ print(attn.shape, logits.shape)
 
 <img width="432" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/e0339909-4500-4ad4-9611-d5b309d78a53">
 
+如果一个大模型是将数据映射到高维空间进行处理，这里假定在处理一个细分的小任务时，是不需要那么复杂的大模型的，可能只需要在某个子空间范围内就可以解决，那么也就不需要对全量参数进行优化了，我们可以定义当对某个子空间参数进行优化时，能够达到全量参数优化的性能的一定水平（如90%精度）时，那么这个子空间参数矩阵的秩就可以称为对应当前待解决问题的本征秩（intrinsic rank）。
+
+预训练模型本身就隐式地降低了本征秩，当针对特定任务进行微调后，模型中权重矩阵其实具有更低的本征秩（intrinsic rank）。同时，越简单的下游任务，对应的本征秩越低。(https://arxiv.org/abs/2012.13255)
+
+<img width="400" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/fb1da97f-b17b-4f6c-a41e-ae8552c1f04c">
+
+通过消融实验发现同时调整Wq和Wv会产生最佳结果。
+ 
 # LLM
 
 LLaMA
