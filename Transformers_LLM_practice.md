@@ -217,6 +217,11 @@ print(attn.shape, logits.shape)
 
 <img width="545" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/4161bd45-e74f-4a69-9e59-3ae60005adfe">
 
+# LoRA
+
+参考： https://zhuanlan.zhihu.com/p/650197598
+
+<img width="432" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/e0339909-4500-4ad4-9611-d5b309d78a53">
 
 # LLM
 
