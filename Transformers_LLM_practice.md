@@ -220,6 +220,7 @@ print(attn.shape, logits.shape)
 # LoRA
 
 参考： https://zhuanlan.zhihu.com/p/650197598
+大模型参数高效微调技术原理综述（五）-LoRA、AdaLoRA、QLoRA (https://zhuanlan.zhihu.com/p/636215898)
 
 <img width="432" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/e0339909-4500-4ad4-9611-d5b309d78a53">
 
