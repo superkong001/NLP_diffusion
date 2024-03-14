@@ -217,21 +217,55 @@ print(attn.shape, logits.shape)
 
 <img width="545" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/4161bd45-e74f-4a69-9e59-3ae60005adfe">
 
-# LoRA
+# finetune
 
 参考： https://zhuanlan.zhihu.com/p/650197598
 大模型参数高效微调技术原理综述（五）-LoRA、AdaLoRA、QLoRA (https://zhuanlan.zhihu.com/p/636215898)
 
 <img width="432" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/e0339909-4500-4ad4-9611-d5b309d78a53">
 
+两个主要研究方向，以减少微调参数的数量，同时保持甚至提高预训练语言模型的性能。
+
+方向一：添加小型网络模块：将小型网络模块添加到PLMs中，保持基础模型保持不变的情况下仅针对每个任务微调这些模块，可以用于所有任务。这样，只需引入和更新少量任务特定的参数，就可以适配下游的任务，大大提高了预训练模型的实用性。如：Adapter tuning、Prefix tuning、Prompt Tuning等，这类方法虽然大大减少了内存消耗。但是这些方法存在一些问题，比如：Adapter tuning引入了推理延时；Prefix tuning或Prompt tuning直接优化Prefix和Prompt是非单调的，比较难收敛，并且消耗了输入的token。
+
+方向二：下游任务增量更新：对预训练权重的增量更新进行建模，而无需修改模型架构，即W=W0+△W。比如：Diff pruning、LoRA等， 此类方法可以达到与完全微调几乎相当的性能，但是也存在一些问题，比如：Diff pruning需要底层实现来加速非结构化稀疏矩阵的计算，不能直接使用现有的框架，训练过程中需要存储完整的∆W矩阵，相比于全量微调并没有降低计算成本。 LoRA则需要预先指定每个增量矩阵的本征秩 r 相同，忽略了在微调预训练模型时，权重矩阵的重要性在不同模块和层之间存在显著差异，并且只训练了Attention，没有训练FFN，事实上FFN更重要。
+
 如果一个大模型是将数据映射到高维空间进行处理，这里假定在处理一个细分的小任务时，是不需要那么复杂的大模型的，可能只需要在某个子空间范围内就可以解决，那么也就不需要对全量参数进行优化了，我们可以定义当对某个子空间参数进行优化时，能够达到全量参数优化的性能的一定水平（如90%精度）时，那么这个子空间参数矩阵的秩就可以称为对应当前待解决问题的本征秩（intrinsic rank）。
 
 预训练模型本身就隐式地降低了本征秩，当针对特定任务进行微调后，模型中权重矩阵其实具有更低的本征秩（intrinsic rank）。同时，越简单的下游任务，对应的本征秩越低。(https://arxiv.org/abs/2012.13255)
 
+## LoRA
+
+（论文：LoRA: LOW-RANK ADAPTATION OF LARGE LANGUAGE MODELS），该方法的核心思想就是通过低秩分解来模拟参数的改变量，从而以极小的参数量来实现大模型的间接训练。
+
+在涉及到矩阵相乘的模块，在原始的PLM旁边增加一个新的通路，通过前后两个矩阵A,B相乘，第一个矩阵A负责降维，第二个矩阵B负责升维，中间层维度为r，从而来模拟所谓的本征秩（intrinsic rank）。
+
+<img width="447" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/df9ab7da-2433-4de1-a4a8-5c045f08dd90">
+
+可训练层维度和预训练模型层维度一致为d，先将维度d通过全连接层降维至r，再从r通过全连接层映射回d维度，其中，r<<d，r是矩阵的秩，这样矩阵计算就从d x d变为d x r + r x d，参数量减少很多。
+
 <img width="400" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/fb1da97f-b17b-4f6c-a41e-ae8552c1f04c">
 
 通过消融实验发现同时调整Wq和Wv会产生最佳结果。
- 
+
+<img width="400" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/20dcfd31-ba3e-4470-a030-64ee9ab45e14">
+
+## AdaLoRA
+
+（论文：ADAPTIVE BUDGET ALLOCATION FOR PARAMETEREFFICIENT FINE-TUNING），是对LoRA的一种改进，它根据重要性评分动态分配参数预算给权重矩阵。具体做法如下：
+
+> 调整增量矩分配。AdaLoRA将关键的增量矩阵分配高秩以捕捉更精细和任务特定的信息，而将较不重要的矩阵的秩降低，以防止过拟合并节省计算预算。
+
+> 以奇异值分解的形式对增量更新进行参数化，并根据重要性指标裁剪掉不重要的奇异值，同时保留奇异向量。由于对一个大矩阵进行精确SVD分解的计算消耗非常大，这种方法通过减少它们的参数预算来加速计算，同时，保留未来恢复的可能性并稳定训练。
+
+<img width="363" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/0cbc84e9-4e47-4045-97fc-6a3356f65471">
+
+## QLoRA
+
+QLoRA（论文： QLORA: Efficient Finetuning of Quantized LLMs），使用一种新颖的高精度技术将预训练模型量化为 4 bit，然后添加一小组可学习的低秩适配器权重，这些权重通过量化权重的反向传播梯度进行微调。QLORA 有一种低精度存储数据类型（4 bit），还有一种计算数据类型（BFloat16）。
+
+<img width="478" alt="image" src="https://github.com/superkong001/NLP_diffusion/assets/37318654/9aa9e8be-bab8-42c6-9198-6712410c2fb2">
+
 # LLM
 
 LLaMA
